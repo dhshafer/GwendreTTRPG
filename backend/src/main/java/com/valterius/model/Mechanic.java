@@ -1,6 +1,6 @@
 package com.valterius.model;
 
-public class mechanic {
+public class Mechanic {
     // PK
     private int mechanicId;
     private String mechanic;

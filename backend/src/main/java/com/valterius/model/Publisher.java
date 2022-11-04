@@ -1,6 +1,6 @@
 package com.valterius.model;
 
-public class publisher {
+public class Publisher {
     //PK
     private int publisherId;
     private String publisher;

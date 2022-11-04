@@ -1,6 +1,6 @@
 package com.valterius.model;
 
-public class genre {
+public class Genre {
     // PK
     private int genreId;
     private String genre;

@@ -1,6 +1,6 @@
 package com.valterius.model;
 
-public class keyword {
+public class Keyword {
     //PK
     private int keywordId;
     private String keyword;

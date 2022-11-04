@@ -1,6 +1,6 @@
 package com.valterius.model;
 
-public class game {
+public class Game {
     //PK
     private int gameId;
     private String name;
