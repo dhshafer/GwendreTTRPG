@@ -7,8 +7,8 @@ public class Game {
     private String sourceUrl;
     //FK
     private int publisherId;
-    //FK
-    private int genreId;
+//    //FK
+//    private int genreId;
     //FK
     private int mechanicId;
 
@@ -47,13 +47,13 @@ public class Game {
         this.publisherId = publisherId;
     }
 
-    public int getGenreId() {
-        return genreId;
-    }
-
-    public void setGenreId(int genreId) {
-        this.genreId = genreId;
-    }
+//    public int getGenreId() {
+//        return genreId;
+//    }
+//
+//    public void setGenreId(int genreId) {
+//        this.genreId = genreId;
+//    }
 
     public int getMechanicId() {
         return mechanicId;

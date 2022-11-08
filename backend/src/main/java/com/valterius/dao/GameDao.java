@@ -27,7 +27,7 @@ public interface GameDao {
     public List<Game> getGamesByKeyword(List<Keyword> keywordList);
 
     //Update
-    public void updateGame(int gameId);
+    public void updateGame(Game game);
 
     //Delete
     public void deleteGameWithGameId(int gameId);
