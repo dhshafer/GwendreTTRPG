@@ -13,11 +13,10 @@ public interface GameDao {
     public Game createGame(Game game);
 
     //Retrieve
-    ///List queries should have a limit of at least 5;
     public List<Game> getAllGames();
     public Game getGameById(int gameId);
 
-    ///TO-DO - More complex search functionality after MVP is finished
+    ///TODO - More complex search functionality after MVP is finished
     public List<Game> getGamesByName(String name);
     public Game getGameBySourceUrl(String sourceUrl);
     public List<Game> getGamesByPublisherId(List<Publisher> publisherList);
@@ -30,5 +29,5 @@ public interface GameDao {
     public void updateGame(Game game);
 
     //Delete
-    public void deleteGameWithGameId(int gameId);
+    public void deleteGameById(int gameId);
 }

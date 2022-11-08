@@ -55,7 +55,7 @@ public class JdbcGameDao implements GameDao{
         return game;
     }
 
-    // *********** TO-DO after MVP ***************
+    //TODO - Implement after MVP ***************
     @Override
     public List<Game> getGamesByName(String name) {
         return null;
@@ -94,7 +94,7 @@ public class JdbcGameDao implements GameDao{
     }
 
     @Override
-    public void deleteGameWithGameId(int gameId) {
+    public void deleteGameById(int gameId) {
         //I thought about creating JDBC DAO for keyword and genre here, then using their methods...
         //Not sure if this is going to work
 
