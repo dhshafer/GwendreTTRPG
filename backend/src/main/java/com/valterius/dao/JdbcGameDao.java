@@ -20,15 +20,15 @@ public class JdbcGameDao implements GameDao{
 //    }
     //No need to pass in datasource since spring automatically checks application.properties file for datasource
     public JdbcGameDao(JdbcTemplate jdbcTemplate){
-        this.jdbcTemplate = new JdbcTemplate();
+        this.jdbcTemplate = jdbcTemplate;
     }
 
     //All sql query methods to be used by the controller
     // ************ Basic CRUD **************
     @Override
     public Game createGame(Game game) {
-        String sql = "INSERT INTO game (name, source_url, publisher_id, mechanic_id) VALUES (?, ?, ?, ?) RETURNING game_id;";
-        int gameId = jdbcTemplate.update(sql, Integer.class, game.getName(), game.getSourceUrl(), game.getPublisherId(), game.getMechanicId());
+        String sql = "INSERT INTO game (name, source_url, publisher_id, mechanic_id) VALUES (?, ?, ?, ?) returning game_id;";
+        int gameId = jdbcTemplate.queryForObject(sql, Integer.class, game.getName(), game.getSourceUrl(), game.getPublisherId(), game.getMechanicId());
         //Use existing getGameById method
         return getGameById(gameId);
     }
@@ -88,9 +88,10 @@ public class JdbcGameDao implements GameDao{
 
     // *************** Basic CRUD ******************
     @Override
-    public void updateGame(Game game) {
+    public Game updateGame(Game game, int gameId) {
         String sql = "UPDATE game SET name = ?, source_url = ?, publisher_id = ?, mechanic_id = ? WHERE game_id = ?";
-        jdbcTemplate.update(sql, game.getName(), game.getSourceUrl(), game.getPublisherId(), game.getMechanicId(), game.getGameId());
+        jdbcTemplate.update(sql, game.getName(), game.getSourceUrl(), game.getPublisherId(), game.getMechanicId(), gameId);
+        return getGameById(gameId);
     }
 
     @Override
@@ -110,7 +111,7 @@ public class JdbcGameDao implements GameDao{
     // Reusable method that maps sql results to model
     private Game mapSqlRowToGame(SqlRowSet results){
         Game game = new Game();
-        game.setGameId(results.getInt("id"));
+        game.setGameId(results.getInt("game_id"));
         game.setName(results.getString("name"));
         game.setSourceUrl(results.getString("source_url"));
         game.setPublisherId(results.getInt("publisher_id"));

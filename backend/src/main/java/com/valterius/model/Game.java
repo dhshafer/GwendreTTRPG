@@ -5,11 +5,9 @@ public class Game {
     private int gameId;
     private String name;
     private String sourceUrl;
-    //FK
+    //FK - must be hydrated when creating a new game on database
     private int publisherId;
-//    //FK
-//    private int genreId;
-    //FK
+    //FK - must be hydrated when creating a new game on database
     private int mechanicId;
 
     //Default constructor
